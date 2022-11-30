@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def is_lower(a):
+def islower(a):
 
     if ord(a) >= 97 and ord(a) <= 122:
         return (True)
