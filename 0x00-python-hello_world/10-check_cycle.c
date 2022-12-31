@@ -16,7 +16,7 @@ int check_cycle(listint_t *list)
 		return (0);
 	fast = list;
 	slow = list;
-	while (slow && fast->next)
+	while (fast && fast->next)
 	{
 		slow = slow->next;
 		fast = fast->next->next;
