@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-
-for num1 in range(0, 9):
-    for num2 in range(num1, 10):
-        if num1 != num2:
-            if (num1 == 8) and (num2 == 9):
+for num1 in range(10):
+    for num2 in range(10):
+        if num1 != num2 and num1 < num2:
+            if num1 == 8 and num2 == 9:
                 print("{}{}".format(num1, num2))
-            else:
-                print("{}{}".format(num1, num2), end=", ")
+                continue
+            print("{}{}".format(num1, num2), end=", ")
