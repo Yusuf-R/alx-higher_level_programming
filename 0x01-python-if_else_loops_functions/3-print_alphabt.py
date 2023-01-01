@@ -2,4 +2,4 @@
 for x in range(97, 123):
     if chr(x) == 'e' or chr(x) == 'q':
         continue
-    print(chr(x), end="")
+    print("{}".format(chr(x)), end="")
