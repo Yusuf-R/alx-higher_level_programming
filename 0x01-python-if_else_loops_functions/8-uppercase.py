@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-def uppercase(str):
-    for i in range(0, len(str)):
-        if (ord(str[i]) >= 97) and (ord(str[i]) <= 122):
-            lower = True
-        else:
-            lower = False
-        print("{}".format((chr(ord(str[i]) - 32)) if lower else
-              str[i]), end="")
-    print("")
+def is_upper(str):
+    for single_char in str:
+        if 96 < ord(single_char) < 123:
+            update = ord(single_char) - 32
+            single_char = chr(update)
+        print("{}".format(single_char), end="")
