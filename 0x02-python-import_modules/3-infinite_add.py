@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    import sys
-    len = len(sys.argv) - 1
-    sum = 0
-    for i in range(len):
-        sum += int(sys.argv[i + 1])
-    print(sum)
+if __name__ == '__main__':
+    list_sum = 0
+    cmd_argz = sys.argv
+    print(cmd_argz)
+    list_len = len(cmd_argz)
+    print(list_len)
+    for trav in range(1, list_len):
+        list_sum += int(cmd_argz[trav])
+    print(list_sum)
