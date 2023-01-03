@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 if __name__ == '__main__':
+    import sys
     list_sum = 0
     cmd_argz = sys.argv
     print(cmd_argz)
