@@ -1,21 +1,33 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    import sys
-    from calculator_1 import add, sub, mul, div
-    if len(sys.argv) != 4:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-    op = sys.argv[2]
-    if op == "+":
-        print("{} + {} = {}".format(a, b, add(a, b)))
-    elif op == "-":
-        print("{} - {} = {}".format(a, b, sub(a, b)))
-    elif op == "*":
-        print("{} * {} = {}".format(a, b, mul(a, b)))
-    elif op == "/":
-        print("{} / {} = {}".format(a, b, div(a, b)))
+import calculator_1 as xcal
+import sys
+
+
+if __name__ == '__main__':
+    user_argz = sys.argv
+    err = "Usage: ./100-my_calculator.py <a> <operator> <b>"
+    opt_err = "Unknown operator. Available operators: +, -, * and /"
+    len_argz = len(user_argz)
+    if len_argz == 4:
+        a = int(user_argz[1])
+        opt_sign = user_argz[2]
+        b = int(user_argz[3])
+        match opt_sign:
+            case "+":
+                cal_sum = xcal.add(a, b)
+                print("{} + {} = {}".format(a, b, cal_sum))
+            case "-":
+                cal_sub = xcal.sub(a, b)
+                print("{} - {} = {}".format(a, b, cal_sub))
+            case "*":
+                cal_mul = xcal.mul(a, b)
+                print("{} * {} = {}".format(a, b, cal_mul))
+            case "/":
+                cal_div = xcal.div(a, b)
+                print("{} / {} = {}".format(a, b, cal_div))
+            case default:
+                print(opt_err)
+                exit(1)
     else:
-        print("Unknown operator. Available operators: +, -, * and /")
+        print(err)
         exit(1)
