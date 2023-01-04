@@ -12,22 +12,21 @@ if __name__ == '__main__':
         a = int(user_argz[1])
         opt_sign = user_argz[2]
         b = int(user_argz[3])
-        match opt_sign:
-            case "+":
-                cal_sum = xcal.add(a, b)
-                print("{} + {} = {}".format(a, b, cal_sum))
-            case "-":
-                cal_sub = xcal.sub(a, b)
-                print("{} - {} = {}".format(a, b, cal_sub))
-            case "*":
-                cal_mul = xcal.mul(a, b)
-                print("{} * {} = {}".format(a, b, cal_mul))
-            case "/":
-                cal_div = xcal.div(a, b)
-                print("{} / {} = {}".format(a, b, cal_div))
-            case default:
-                print(opt_err)
-                exit(1)
+        if opt_sign == "+":
+            cal_sum = xcal.add(a, b)
+            print("{} + {} = {}".format(a, b, cal_sum))
+        elif opt_sign == "-":
+            cal_sub = xcal.sub(a, b)
+            print("{} - {} = {}".format(a, b, cal_sub))
+        elif opt_sign == "*":
+            cal_mul = xcal.mul(a, b)
+            print("{} * {} = {}".format(a, b, cal_mul))
+        elif opt_sign == "/":
+            cal_div = xcal.div(a, b)
+            print("{} / {} = {}".format(a, b, cal_div))
+        else:
+            print(opt_err)
+            exit(1)
     else:
         print(err)
         exit(1)
