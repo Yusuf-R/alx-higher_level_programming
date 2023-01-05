@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-    if not matrix:
-        return None
-    for submat in matrix:
-        print(" ".join("{:d}".format(elmt) for elmt in submat))
+    for matrix_out in matrix:
+        for matrix_in in matrix_out:
+            print("{:d}".format(matrix_in), end=" ")
+        print()
