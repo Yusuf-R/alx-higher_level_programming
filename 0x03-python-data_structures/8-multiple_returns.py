@@ -10,4 +10,3 @@ def multiple_returns(sentence):
         tp_0 = sentence[0]
         tp_sen = (tp_len, tp_0)
         return (tp_sen)
-
