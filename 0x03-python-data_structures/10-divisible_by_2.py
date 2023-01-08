@@ -1,3 +1,9 @@
-#!/usr/bin/python3
+#!/bin/usr/python3
 def divisible_by_2(my_list=[]):
-    return [(i % 2 == 0) for i in my_list]
+    test_list = []
+    for num in range(len(my_list)):
+        if my_list[num] % 2 != 0:
+            test_list.append(False)
+        else:
+            test_list.append(True)
+    return test_list
