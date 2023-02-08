@@ -94,7 +94,8 @@ class Square:
 
     def my_print(self):
         """
-        This function prints to stdout the area of the square using '#' graphics
+        This function prints to stdout the area of
+        the square using '#' graphics
 
         Parameters
         ----------
