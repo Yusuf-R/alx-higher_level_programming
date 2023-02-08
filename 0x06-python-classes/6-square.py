@@ -146,5 +146,5 @@ class Square:
         else:
             for y_axis in range(self.__position[1]):
                 print()
-            for x_row in range(self.__size):
-                print(" " * self.__position[0], "#" * self.__size)
+            for row in range(self.__size):
+                print(" " * self.__position[0] + "#" * self.__size)
