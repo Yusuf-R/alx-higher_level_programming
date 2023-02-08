@@ -1,8 +1,12 @@
 #!/usr/bin/python3
-"""Square module - it is an empty class"""
+""" A module with the class definatoin of a square"""
 
 
 class Square:
-    """Defines a square"""
+    """
+    This is a blueprint class template for defining
+    an object square
 
+    It does nothing at this instance
+    """
     pass
