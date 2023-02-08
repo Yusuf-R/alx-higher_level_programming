@@ -1,19 +1,53 @@
 #!/usr/bin/python3
-"""Square module - assigns size of the square and
-checks for type and value"""
+""" A module with the class definatoin of a square"""
 
 
 class Square:
-    """defines a square with private instance attribute size"""
+    """
+    This is a blueprint class template for defining
+    an object square
+
+    Attributes
+    ----------
+    size (int) :    The sides of the square
+                    This is the size of it sides
+                    it is a private attribute
+
+    Mehods:
+    ----------
+    area(self) : xcal the area of the square with the sides
+    """
+
     def __init__(self, size=0):
-        """assigns size of the square and checks for type and value"""
-        
-        if not isinstance(size, int):
+        """
+        Constructor for all the necessary attributes for
+        the square object.
+
+        Asigns the size parameters base on type checks
+        and accepted values
+
+        Instance Parameters:
+        ----------
+            size (int) : The side of the square
+        """
+        if type(size) != int:
             raise TypeError("size must be an integer")
-        if size < 0:
+        elif size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = int(size)
+        else:
+            self.__size = size
 
     def area(self):
-        """public instance method returns current sqr area"""
+        """
+        This calculates and returns the area of the square
+
+        Parameters
+        ----------
+        size(int) : The side of the square
+
+        Returns
+        ----------
+        The area of the square calculated
+        """
+
         return self.__size ** 2
