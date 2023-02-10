@@ -17,15 +17,15 @@ class Node:
         To initialize the attributes of the Node
 
         """
-        
+
         if not isinstance(data, int):
             raise TypeError("data must be an integer")
         self.__data = data
-        
+
         if next_node and not isinstance(next_node, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = next_node
-        
+
     @property
     def data(self):
         """
@@ -53,24 +53,24 @@ class Node:
         """Set the node address to differnt address"""
         if value and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
-        self.__next_node = value 
+        self.__next_node = value
 
 
 class SinglyLinkedList:
     """
     This is the blueprint for creating a singly linked list
-    
+
     Args:
-        __head : a private attribute for holding the 
+        __head : a private attribute for holding the
                  address of the first Node
 
     Abb :
             SLL :  Singly Linked List
 
     Public Methods:
-        
+
         print_list() : prints all the nodes of the SLL
-        
+
         insert_begin() : Insert a node at the begining
 
         insert_after() : Insert a node after a given node
@@ -82,14 +82,14 @@ class SinglyLinkedList:
         insert_empty(): Insert to an empty list
 
         sorted_insert() : Insert a sorted node in ascending order
-        
+
         length(): Get the length of the node
     """
-      
+
     def __init__(self):
         """Instantiates the private attribute"""
         self.__head = None
-        
+
     def print_list(self):
         """Prints out the liked list"""
         if self.__head is None:
@@ -99,13 +99,13 @@ class SinglyLinkedList:
             while trav is not None:
                 print("{:d} --> ".format(trav.data), end="")
                 trav = trav.next_node
-                
+
     def insert_begin(self, value):
         """Insert a node at the begining"""
         new_node = Node(value)
         new_node.next_node = self.__head
         self.__head = new_node
-    
+
     def insert_end(self, value):
         """Insert a node at the end"""
         new_node = Node(value)
@@ -116,7 +116,7 @@ class SinglyLinkedList:
             while trav.next_node is not None:
                 trav = trav.next_node
             trav.next_node = new_node
-    
+
     def insert_after(self, value, data):
         """Insert after a given node value"""
         trav = self.__head
@@ -124,24 +124,14 @@ class SinglyLinkedList:
             if trav.data == data:
                 break
             trav = trav.next_node
-        if trav == None:
+        if trav is None:
             print("The operation is invalid")
-                
+
         else:
             new_node = Node(value)
             new_node.next_node = trav.next_node
-            trav.next_node = new_node 
-        
-        """
-        This code below is insignificantly
-        redundant
-        
-        elif trav.next_node == None:
-            new_node = Node(value)
             trav.next_node = new_node
-        """
-        
-    
+
     def insert_before(self, value, data):
         """Insert a node before the given node value"""
         if self.__head is None:
@@ -164,7 +154,7 @@ class SinglyLinkedList:
                 new_node = Node(value)
                 new_node.next_node = trav.next_node
                 trav.next_node = new_node
-        
+
     def insert_empty(self, value):
         """Insert a node when the list is empty"""
         if self.__head is None:
@@ -172,23 +162,22 @@ class SinglyLinkedList:
             self.__head = new_node
         else:
             print("Operation Invalid, S_linked_list already contain a node")
-        
-    @property    
+
+    @property
     def length(self):
         """
         This will return the total nodes present in the list
         """
         l_len = 0
-        if self.__head == None:
+        if self.__head is None:
             return l_len
         else:
             trav = self.__head
-            while trav != None:
+            while trav is not None:
                 l_len += 1
                 trav = trav.next_node
             return l_len
-    
-    
+
     def sorted_insert(self, value):
         """
         Insert into the node in a sorted manner.
@@ -196,31 +185,31 @@ class SinglyLinkedList:
             The the list in ascending order
         """
         new_node = Node(value)
-        
-        if self.__head == None:
+
+        if self.__head is None:
             self.__head = new_node
         elif self.__head.data > value:
             new_node.next_node = self.__head
             self.__head = new_node
         else:
             trav = self.__head
-            while trav.next_node != None and trav.next_node.data < value:
+            while trav.next_node is not None and trav.next_node.data < value:
                 trav = trav.next_node
             new_node.next_node = trav.next_node
-            trav.next_node = new_node      
-    
+            trav.next_node = new_node
+
     def __str__(self):
         """
         This prints out the list data when called directly
-        
+
         Returns:
             the data items each in a newline
 
         """
         trav = self.__head
         list_data = []
-        
-        while trav != None:
+
+        while trav is not None:
             list_data.append(str(trav.data))
             trav = trav.next_node
         for i in list_data:
