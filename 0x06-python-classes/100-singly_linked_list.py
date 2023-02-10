@@ -216,5 +216,5 @@ class SinglyLinkedList:
         while trav is not None:
             list_data.append(str(trav.data))
             trav = trav.next_node
-        for i in list_data:
-            print("{}".format(i))
+
+        return ("\n".join(list_data))
