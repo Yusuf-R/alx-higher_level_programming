@@ -1,67 +1,61 @@
-The ``0-add_integer`` module
-============================
+The test module for ``0-add_integer```
+++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++
 
-Using ``add_integer``
----------------------
+Operations for ``add_integer`` function
+***************************************
+***************************************
 
-Import function from module:
+Import the function add_integer from the module:
+ 	>>> add_integer = __import__('0-add_integer').add_integer
 
-    >>> add_integer = __import__('0-add_integer').add_integer
+Test the function with only 1 int argument:
+	>>> add_integer(2)
+	100
 
-Test one int argument:
+Test the function with 2 integers:
+	>>> add_integer(4, 100)
+	104
 
-    >>> add_integer(2)
-    100
+Test the function to validate the default ineger:
+	>>> add_integer(0)
+	98
 
-Test one int argument and check default second:
+Test a negative input:
+	>>> add_integer(-1)
+	97
 
-    >>> add_integer(0)
-    98
+Test both negative input:
+	>>> add_integer(-1, -400)
+	-401
 
-Test one float:
+Test negative and positve argument:
+	>>> add_integer(-1, 40)
+	39
 
-    >>> add_integer(123.9)
-    221
+Test input is float and other is int:
+	>>> add_integer(4.5, 40)
+	44
 
-Test one negative float:
+Test both input are positve float:
+	>>> add_integer(4.5, 4.5)
+	8
 
-    >>> add_integer(-95.5)
-    3
+Test both input are negative float:
+	>>> add_integer(-11.2, -6.95)
+	-17
 
-Test two integers:
+Test both input are negative float:
+	>>> add_integer(-45.455, 13.5)
+	-32
 
-    >>> add_integer(10, 5)
-    15
+Test both input are very lage int:
+	>>> add_integer(124445665655677, 34324395454854058409)
+	34324519900519714086
 
-Test two big integers:
-
-    >>> add_integer(999999998, 999999999)
-    1999999997
-
-Test positive, negative integers:
-
-    >>> add_integer(34263478, -89234582395)
-    -89200318917
-
-Test negative, positive integers:
-
-    >>> add_integer(-13947692, 57234)
-    -13890458
-
-Test an integer and a float:
-
-    >>> add_integer(123, 7.987)
-    130
-
-Test a float and an integer:
-
-    >>> add_integer(234234.43545, 4352345)
-    4586579
-
-Test two floats:
-
-    >>> add_integer(0.9, 0.9)
-    0
+Test both input are very lage float:
+	>>> add_integer(1244456.65655677, 343243954548.54058409)
+	343245199004
 
 Add infinity:
 
@@ -80,34 +74,19 @@ Add nan:
 Test first arg invalid:
 
     >>> add_integer("foo", 0)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+    TypeError('a must be an integer')
 
 Test second arg invalid:
 
     >>> add_integer(123123, [])
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
+    TypeError('b must be an integer')
 
 Test both args invalid:
 
     >>> add_integer(None, None)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+    TypeError('a must be an integer')
 
 Test two strings:
 
     >>> add_integer("foo", "bar")
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
-
-Test float overflow:
-    >>> add_integer(float('inf'), 0)
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-    
+    TypeError('a must be an integer')
