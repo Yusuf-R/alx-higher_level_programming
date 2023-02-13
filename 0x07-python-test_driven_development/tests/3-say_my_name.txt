@@ -85,3 +85,7 @@ Test the function if both argument are empty:
 Test the function if both argument are empty:
 	>>> say_my_name("", "")
 	My name is  
+
+Test the function passing the argument directly:
+	>>> say_my_name(first_name = "", last_name = "")
+	My name is  
