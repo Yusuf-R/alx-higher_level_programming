@@ -1,56 +1,87 @@
-The ``3-say_my_name`` module
-============================
+The test module for ``3-say_my_name``
+++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++
 
-Using ``3-say_my_name``
----------------------
+Operations for ``say_my_name(first_name, last_name="")``
+*******************************************************py
+*******************************************************
 
-Import module:
-    >>> say_my_name = __import__('3-say_my_name').say_my_name
+Import the function add_integer from the module:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+ 	
+Test the function with both argument = None:
+	>>> say_my_name(None, None)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+	
+Test the function with only the first arg as None:
+	>>> say_my_name(None, "Yusuf")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+	
+Test the function with only the second arg as None:
+	>>> say_my_name("Yusuf", None)
+	Traceback (most recent call last):
+	...
+	TypeError: second_name must be a string
+	
+Test the function with if an int is passed:
+	>>> say_my_name("Yusuf", 2)
+	Traceback (most recent call last):
+	...
+	TypeError: second_name must be a string
 
-Test basic:
-	>>> say_my_name("hello", "there")
-	My name is hello there
+Test the function with if an int is passed:
+	>>> say_my_name("2", "Yusuf")
+	My name is 2 Yusuf
 
-Test firstname:
-	>>> say_my_name("hello")
-	My name is hello 
+Test the function if arg 2 is a float:
+	>>> say_my_name("Yusuf", 2.5)
+	Traceback (most recent call last):
+	...
+	TypeError: second_name must be a string
 
-Test lastname empty:
-	>>> say_my_name("hello", "")
-	My name is hello 
+Test the function if arg 1 is a float:
+	>>> say_my_name(2.4, "Yusuf")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
 
-Test both names empty:
+Test the function if arg 2 is a list:
+	>>> say_my_name("Yusuf", ["Abdulwasiu"])
+	Traceback (most recent call last):
+	...
+	TypeError: second_name must be a string
+
+Test the function if arg 1 is a list:
+	>>> say_my_name(["Abdulwasiu"], "Yusuf")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Test the function with both valid input:
+	>>> say_my_name("Yusuf", "Abdulwasiu")
+	My name is Yusuf Abdulwasiu
+
+Test the function if arg1 is an empty string:
+	>>> say_my_name("", "Abdulwasiu")
+	My name is  Abdulwasiu
+
+Test the function if arg1 is an empty string:
+	>>> say_my_name("Yusuf", "")
+	My name is Yusuf 
+
+Test the function if arg1 is char:
+	>>> say_my_name(" ", "Abdulwasiu")
+	My name is   Abdulwasiu
+
+Test the function if both argument are empty:
 	>>> say_my_name("", "")
 	My name is  
 
-Test just spaces:
-	>>> say_my_name("   ", "   ")
-	My name is        
 
-Test empty firstname:
-	>>> say_my_name("", "hello")
-	My name is  hello
-
-Test not str arg1:
-    >>> say_my_name(33, "hello")
-    Traceback (most recent call last):
-    ...
-    TypeError: first_name must be a string
-
-Test not str arg2:
-    >>> say_my_name("hello", 98)
-    Traceback (most recent call last):
-    ...
-    TypeError: last_name must be a string
-
-Test not str arg1 arg2:
-    >>> say_my_name(91, 98)
-    Traceback (most recent call last):
-    ...
-    TypeError: first_name must be a string
-
-Missing 2 args:
-    >>> say_my_name()
-    Traceback (most recent call last):
-    ...
-    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+Test the function if both argument are empty:
+	>>> say_my_name("", "")
+	My name is  
