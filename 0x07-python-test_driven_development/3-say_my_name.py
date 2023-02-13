@@ -29,7 +29,7 @@ def say_my_name(first_name, last_name=""):
         function returns = Abdulwasiu Yusuf
     """
     te_1 = "first_name must be a string"
-    te_2 = "second_name must be a string"
+    te_2 = "last_name must be a string"
     if not isinstance(first_name, str):
         raise TypeError(te_1)
     if not isinstance(last_name, str):

@@ -25,13 +25,13 @@ Test the function with only the second arg as None:
 	>>> say_my_name("Yusuf", None)
 	Traceback (most recent call last):
 	...
-	TypeError: second_name must be a string
+	TypeError: last_name must be a string
 	
 Test the function with if an int is passed:
 	>>> say_my_name("Yusuf", 2)
 	Traceback (most recent call last):
 	...
-	TypeError: second_name must be a string
+	TypeError: last_name must be a string
 
 Test the function with if an int is passed:
 	>>> say_my_name("2", "Yusuf")
@@ -41,7 +41,7 @@ Test the function if arg 2 is a float:
 	>>> say_my_name("Yusuf", 2.5)
 	Traceback (most recent call last):
 	...
-	TypeError: second_name must be a string
+	TypeError: last_name must be a string
 
 Test the function if arg 1 is a float:
 	>>> say_my_name(2.4, "Yusuf")
@@ -53,7 +53,7 @@ Test the function if arg 2 is a list:
 	>>> say_my_name("Yusuf", ["Abdulwasiu"])
 	Traceback (most recent call last):
 	...
-	TypeError: second_name must be a string
+	TypeError: last_name must be a string
 
 Test the function if arg 1 is a list:
 	>>> say_my_name(["Abdulwasiu"], "Yusuf")
