@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is a module that contains a function for 
+This is a module that contains a function for
 printing out the size of a square
 
 Exceptoions:
