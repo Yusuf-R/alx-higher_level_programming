@@ -33,4 +33,4 @@ def text_indentation(text):
     for mod_str in new_list:
         text_l.append(mod_str.strip())
     final_text = "\n".join(text_l)
-    print(final_text)
+    print(final_text,end="")
