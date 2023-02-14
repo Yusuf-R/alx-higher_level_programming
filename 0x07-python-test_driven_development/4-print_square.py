@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """
 This is a module that contains a function for 
 printing out the size of a square
