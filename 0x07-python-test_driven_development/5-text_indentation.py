@@ -1,26 +1,36 @@
 #!/usr/bin/python3
-"""Module for text_indentation method."""
+"""
+This is a module that contains a function for
+printing out the size of a square
+
+Exceptoions:
+    TypeError: if the arg is not an int of a float
+
+    ValueError: if the arg is < 0
+"""
 
 
 def text_indentation(text):
-    """Method for adding 2 new lines after '.?:' chars.
+    """
+    This function prints out the size of square
 
     Args:
-        text: The str text.
+        size (int): the size of the square
 
-    Raises:
-        TypeError: If text is not a str.
+    Returns:
+        char: '#' denoting the size of the square
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-
-    for delim in ".?:":
-        # print(delim, text.split(delim))
-        text = (delim + "\n\n").join(
-            [line.strip(" ") for line in text.split(delim)])
-
-    print(text, end="")
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testfile("tests/5-text_indentation.txt")
+    new_text = ""
+    text_l = []
+    for mod_char in text:
+        if mod_char in ["?", ".", ":"]:
+            new_text += mod_char + "\n\n"
+        else:
+            new_text += mod_char
+    new_list = new_text.split("\n")
+    for mod_str in new_list:
+        text_l.append(mod_str.strip())
+    final_text = "\n".join(text_l)
+    print(final_text)
