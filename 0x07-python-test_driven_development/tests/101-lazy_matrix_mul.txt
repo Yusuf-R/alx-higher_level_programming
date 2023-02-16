@@ -41,7 +41,9 @@ Testing an empty list in the list:
 	>>> print(lazy_matrix_mul([[1, 2], [3, 4]], []))
 	Traceback (most recent call last):
 	...
-	ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)	>>> print(lazy_matrix_mul(m_a, m_b=[[1]]))
+	ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)	
+	
+	>>> print(lazy_matrix_mul(m_a, m_b=[[1]]))
 	Traceback (most recent call last):
 	...
 	NameError: name 'm_a' is not defined
