@@ -130,7 +130,7 @@ Test with 1-D list with int argument:
 	>>> print(matrix_mul(a, b))
 	Traceback (most recent call last):
 	...
-	TypeError: m_a must be a list of list
+	TypeError: m_a must be a list of lists
 	
 
 Succesful result with int 3x3:

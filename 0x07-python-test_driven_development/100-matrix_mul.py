@@ -59,12 +59,12 @@ def matrix_mul(m_a, m_b):
     if is_matrix_list_of_list(m_a):
         pass
     else:
-        raise TypeError("m_a must be a list of list")
+        raise TypeError("m_a must be a list of lists")
 
     if is_matrix_list_of_list(m_b):
         pass
     else:
-        raise TypeError("m_b must be a list of list")
+        raise TypeError("m_b must be a list of lists")
 
     if is_matrix_empty(m_a):
         pass
