@@ -115,8 +115,4 @@ None:
 	NameError: name 'm_a' is not defined
 	
 	>>> print(lazy_matrix_mul(m_a=[[1]], m_b=[[1]]))
-	array[[1]]
-	
-
-	
-	
+	[[1]]
