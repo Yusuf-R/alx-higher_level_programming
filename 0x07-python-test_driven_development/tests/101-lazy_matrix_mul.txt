@@ -90,3 +90,14 @@ None:
 	Traceback (most recent call last):
 	...
 	ValueError: matmul: Input operand 0 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+	
+	
+	>>> ma = [[1, 2, 3], [3, 4, 5]]
+	>>> mb = [[1, 2], [3, 4]]
+	>>> print(lazy_matrix_mul(ma, mb))
+	Traceback (most recent call last):
+	...	
+	ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 3)
+
+	
+	
