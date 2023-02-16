@@ -98,7 +98,9 @@ def lazy_matrix_mul(m_a, m_b):
     if col_a != row_b:
         raise ValueError("m_a and m_b can't be multiplied")
 
-    new_matrix = np.dot(np.array(m_a), np.array(m_b))
+    ma = np.array(m_a)
+    mb = np.array(m_b)
+    new_matrix = ma.dot(mb)
     return new_matrix
 
 
