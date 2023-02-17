@@ -32,6 +32,6 @@ class Rectangle:
     Exceptions
     -----------
         it contains none at the moment
-           
+
     """
     pass
