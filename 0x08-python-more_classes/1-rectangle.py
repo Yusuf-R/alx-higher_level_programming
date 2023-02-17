@@ -1,37 +1,110 @@
 #!/usr/bin/python3
-"""Rectangle module"""
+"""
+This is a module that contains the template for the class Rectangle
+"""
 
 
 class Rectangle:
-    """ Rectangle class"""
+    """
+    This is a template for the class Rectangle
+
+    Attributes:
+    -----------
+        width : int
+                defines the width of the rectangle
+
+        height: int
+                defines the height of the rectangle
+
+    Methods:
+    -----------
+        static method:
+            input_check: ensures the input is strictly an integer
+            value_check: ensures the value is not less than 0
+
+        decorators:
+            get_width: returns the width of the rectangle
+            set_width: sets the width of the rectangle
+
+            get_height: returns the height of the rectangle
+            set_height: sets the height of the rectangle
+
+    Exceptions
+    -----------
+        TypeError: if the input is not an integer
+        ValueError: if the input is less than zero
+    """
+    pass
+
     def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+        """
+        This instantiates the object of the class with
+        the given width and height
+
+        Private Instance Attributes:
+        ----------------------------
+        width : int
+                defines the width of the rectangle
+
+        height: int
+                defines the height of the rectangle
+
+        Exceptions:
+        -----------
+            TypeError:
+                if arg is not of type int or float
+            ValueError:
+                if the arg is less than zero
+        """
+        if Rectangle.check_input(width) is False:
+            raise TypeError("width must be an integer")
+        if Rectangle.check_input(height) is False:
+            raise TypeError("height must be an integer")
+
+        if Rectangle.check_value(width) is False:
+            raise ValueError("width must be >= 0")
+        if Rectangle.check_value(height) is False:
+            raise ValueError("height must be >= 0")
+
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
-        """Returns the width of the rectangle"""
+        """ This gets the  width"""
         return self.__width
 
     @width.setter
-    def width(self, value):
-        """Sets the width of the rectangle"""
-        if not isinstance(value, int):
+    def width(self, width):
+        """Set the width base on the data passed """
+        if Rectangle.check_input(width) is True:
+            self.__width = width
+        else:
             raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
-        self.__width = value
 
     @property
     def height(self):
-        """Returns the height of the rectangle"""
-        return (self.__height)
+        """ This gets the  width"""
+        return self.__height
 
     @height.setter
-    def height(self, value):
-        """Sets the height of rectangle"""
-        if not isinstance(value, int):
+    def height(self, height):
+        """Set the width base on the data passed """
+        if Rectangle.check_input(height) is True:
+            self.__height = height
+        else:
             raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = value
+
+    @staticmethod
+    def check_input(data):
+        if type(data) in [int]:
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def check_value(data):
+        if data < 0:
+            return False
+        else:
+            pass
