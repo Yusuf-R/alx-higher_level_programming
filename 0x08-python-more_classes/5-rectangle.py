@@ -135,11 +135,8 @@ class Rectangle:
         """
         It deletes the instance of the class
         """
-        # del self.__width
-        # del self.__height
-        # # del Rectangle
         print("Bye rectangle...")
-    
+
     def area(self):
         """Returns the area of the rectangle: width * height"""
         if self.__width == 0 or self.__height == 0:
