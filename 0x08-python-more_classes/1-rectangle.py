@@ -91,7 +91,7 @@ class Rectangle:
     @height.setter
     def height(self, height):
         """Set the width base on the data passed """
-        if Rectangle.check_input(height) is True:
+        if Rectangle.check_input(height) is False:
             raise TypeError("height must be an integer")
         if Rectangle.check_value(height) is False:
             raise ValueError("height must be >= 0")
