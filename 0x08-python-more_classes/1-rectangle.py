@@ -77,10 +77,11 @@ class Rectangle:
     @width.setter
     def width(self, width):
         """Set the width base on the data passed """
-        if Rectangle.check_input(width) is True:
-            self.__width = width
-        else:
+        if Rectangle.check_input(width) is False:
             raise TypeError("width must be an integer")
+        if Rectangle.check_value(width) is False:
+            raise ValueError("width must be >= 0")
+        self.__width = width
 
     @property
     def height(self):
@@ -91,9 +92,10 @@ class Rectangle:
     def height(self, height):
         """Set the width base on the data passed """
         if Rectangle.check_input(height) is True:
-            self.__height = height
-        else:
             raise TypeError("height must be an integer")
+        if Rectangle.check_value(height) is False:
+            raise ValueError("height must be >= 0")
+        self.__height = height
 
     @staticmethod
     def check_input(data):
