@@ -215,8 +215,8 @@ class Rectangle:
             Rectangle:
                 returns a square of the given size
         """
-        if Rectangle.check_input(size) is False:
-            raise TypeError("size must be an integer")
-        if Rectangle.check_value(size) is False:
-            raise ValueError("size must be >= 0")
+        # if Rectangle.check_input(size) is False:
+        #     raise TypeError("size must be an integer")
+        # if Rectangle.check_value(size) is False:
+        #     raise ValueError("size must be >= 0")
         return Rectangle(size, size)
