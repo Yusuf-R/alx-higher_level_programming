@@ -1,7 +1,15 @@
 #!/usr/bin/python3
-"""Locked class module"""
+"""
+This module contains a class that operates
+only when the instnace attributes matches the
+slot parameter
+""""
 
 
 class LockedClass:
-    """Locked class using slots to save memory"""
-    __slots__ = "first_name",
+    """
+    This object to this class will only be instantiated
+    when the attributes matches the content of the slots
+    parameters
+    """
+    __slots__ = ["first_name"]

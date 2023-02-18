@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-def magic_string():
-    setattr(magic_string, "i", getattr(magic_string, "i", -1) + 1)
-    return "BestSchool" + ", BestSchool" * getattr(magic_string, "i", 0)
+"""Returns a strig using memory of the previous call"""
+def magic_string(var=[]):
+    """returns the string with the appended string"""
+    var.append("BestSchool")
+    return ", ".join(var)
