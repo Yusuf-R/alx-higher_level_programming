@@ -3,7 +3,7 @@
 This module contains a class that operates
 only when the instnace attributes matches the
 slot parameter
-""""
+"""
 
 
 class LockedClass:
