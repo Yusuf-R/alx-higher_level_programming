@@ -6,4 +6,6 @@ class MyList(list):
     """A class the set the objects to list attributes"""
     def print_sorted(self):
         """Prints the object in a sorted order"""
-        print(sorted(self))
+        new_list = self[:]
+        new_list.sort()
+        print("{}".format(new_list))
