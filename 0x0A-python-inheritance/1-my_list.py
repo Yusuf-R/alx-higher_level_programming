@@ -4,6 +4,10 @@
 
 class MyList(list):
     """A class the set the objects to list attributes"""
+
+    def __init__(self):
+        super().__init__(self)
+
     def print_sorted(self):
         """Prints the object in a sorted order"""
         new_list = self[:]
