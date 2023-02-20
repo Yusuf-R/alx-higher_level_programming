@@ -1,16 +1,12 @@
 #!/usr/bin/python3
-"""This is the ``1-my_list`` module
-
-It contains the lone class ``MyList`` which is a subclass of ``list``
-"""
+"""A module that defines a class that inherits from a list"""
 
 
 class MyList(list):
-    """A class that inherits ``list``"""
+    """A class the set the objects to list attributes"""
 
     def print_sorted(self):
-        """Function that prints the list, in sorted order (ascending)"""
-
-        newList = self[:]
-        newList.sort()
-        print("{}".format(newList))
+        """Prints the object in sorted order"""
+        new_list = self[:]
+        new_list.sort()
+        print("{}".format(new_list))
