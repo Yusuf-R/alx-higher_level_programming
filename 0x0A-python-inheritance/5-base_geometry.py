@@ -1,7 +1,24 @@
 #!/usr/bin/python3
-"""BaseGeometry class Module"""
+"""
+This module contains a class defination
+
+Attributes:
+==========
+    None
+
+"""
 
 
-class BaseGeometry():
-    """BaseGeometry empty class"""
+class BaseGeometry:
+    """
+    An empty class at the moment
+
+    Attributes:
+    -----------
+        None
+
+    Methods:
+    -----------
+        None
+    """
     pass
