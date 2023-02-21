@@ -1,9 +1,17 @@
 #!/usr/bin/python3
-"""Module with load_from_json_file mtd"""
+"""
+This module contains a function that deserialize
+a json object to a python object"
+
+In here we use the load() since we are now dealing with a file
+"""
 import json
 
 
 def load_from_json_file(filename):
-    """Method that creates an Object from a “JSON file”"""
-    with open(filename, "r", encoding="utf-8") as f:
-        return json.loads(f.read())
+    """
+    This function deserialises a json object to python object
+        This process is called Decoding
+    """
+    with open(filename, mode="r", encoding="utf-8") as fd:
+        return json.load(fd)
