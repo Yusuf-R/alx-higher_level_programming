@@ -1,13 +1,18 @@
 #!/usr/bin/python3
-"""MyInt class module"""
+"""
+This is a module that contains a rebel int
+implementation of a class
+"""
 
 
 class MyInt(int):
-    """A MyInt class"""
-    def __eq__(self, other):
-        """Overides and inverts == operator"""
-        return int(self) != int(other)
 
+    """
+    This template will contain fliped behaviour of the
+    class int
+    """
     def __ne__(self, other):
-        """Overides and inverts != operator"""
-        return int(self) == int(other)
+        return True
+
+    def __eq__(self, other):
+        return False
