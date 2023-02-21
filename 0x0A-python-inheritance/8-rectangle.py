@@ -3,8 +3,6 @@
 This module contains a class that inherits from a superclass
 as defined
 """
-
-
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
@@ -27,8 +25,8 @@ class Rectangle(BaseGeometry):
         height: int
                 height of the rectangle
         """
-        super().integer_validator(name="width", value=width)
-        super().integer_validator(name="height", value=height)
+        self.integer_validator(name="width", value=width)
+        self.integer_validator(name="height", value=height)
 
         self.__width = width
         self.__height = height
