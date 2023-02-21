@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""Module with a function that appends a string to a text file"""
+"""This module contains a function that writes to a file"""
 
 
 def append_write(filename="", text=""):
-    """Mtd that appends a string to a text file and returns no.\
-        of chars added"""
-    with open(filename, "a", encoding="utf-8") as f:
-        return f.write(text)
+    """
+    This function appends to an existing or new file
+
+    Returns:
+        int: the number of characters written
+    """
+    with open(filename, "a", encoding="utf-8") as fd:
+        return fd.write(text)
