@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """
 This module contains a class that inherits from a superclass
 as defined
@@ -25,8 +25,8 @@ class Rectangle(BaseGeometry):
         height: int
                 height of the rectangle
         """
-        self.integer_validator(name="width", value=width)
-        self.integer_validator(name="height", value=height)
+        super().integer_validator(name="width", value=width)
+        super().integer_validator(name="height", value=height)
 
         self.__width = width
         self.__height = height
