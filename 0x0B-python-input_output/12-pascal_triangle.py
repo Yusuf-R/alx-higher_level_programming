@@ -1,13 +1,18 @@
 #!/usr/bin/python3
-"""Pascal triangle module"""
+"""A module with a function that creates a Pascal Triangle"""
 
 
 def pascal_triangle(n):
-    """Method that returns a list of lists of integers
-    representing the Pascal’s triangle of n
-    """
-    rows = [[1 for j in range(i + 1)] for i in range(n)]
-    for n in range(n):
-        for i in range(n - 1):
-            rows[n][i + 1] = sum(rows[n - 1][i:i + 2])
-    return rows
+    """This function creates a pascal triangle of nth rows"""
+    pascal = []
+    if n <= 0:
+        return pascal
+    for r in range(n):
+        inner_list = []
+        for c in range(r + 1):
+            if c == 0 or c == r:
+                inner_list.append(1)
+            else:
+                inner_list.append(pascal[r - 1][c - 1] + pascal[r - 1][c])
+        pascal.append(inner_list)
+    return pascal
