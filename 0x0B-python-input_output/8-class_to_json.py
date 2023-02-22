@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""Class to JSON module"""
+"""This module stores the attribute of an object"""
 
 
 def class_to_json(obj):
-    """Method that returns the dictionary description with simple
-    data structure  (list, dictionary, string, integer and boolean)
-    for JSON serialization of an object
     """
-    # a simple "return obj.__dict__" would work
-    if hasattr(obj, "__dict__"):
-        return obj.__dict__.copy()
-    return {}
+    This function that returns the dictionary description
+    with simple data structure (list, dictionary, string,
+    integer and boolean) for JSON serialization of an object
+    """
+    py_obj = obj.__dict__
+    return py_obj
