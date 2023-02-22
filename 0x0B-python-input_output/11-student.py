@@ -1,24 +1,28 @@
 #!/usr/bin/python3
-"""Student class Module"""
+"""This module contains a class that defines a student"""
 
 
-class Student():
-    """Student class"""
+class Student:
+    """This class is a template for its object instances"""
     def __init__(self, first_name, last_name, age):
-        """Initializes Student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """Gets dict with filter"""
-        if type(attrs) is list and all([type(attr) == str for attr in attrs]):
-            return {key: val for key, val in self.__dict__.items() if key in
-                    attrs}
+        """return the attribute in a dict form for the exact attribute"""
+        if attrs is None:
+            return self.__dict__
         else:
-            return self.__dict__.copy()
+            exact_attrib = {}
+            obj_dict = self.__dict__
+            l_keys = obj_dict.keys()
+            for ky in l_keys:
+                if ky in attrs:
+                    exact_attrib[ky] = obj_dict[ky]
+            return exact_attrib
 
     def reload_from_json(self, json):
-        """Method for loading attributes from json"""
-        for k, val in json.items():
-            self.__dict__[k] = val
+        """will reload the json to overite at dict attribute of the object"""
+        self.__dict__ = json
+        return self.__dict__
