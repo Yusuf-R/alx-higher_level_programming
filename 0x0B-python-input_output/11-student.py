@@ -24,5 +24,6 @@ class Student:
 
     def reload_from_json(self, json):
         """will reload the json to overite at dict attribute of the object"""
-        self.__dict__ = json
+        for kys, vls in json.items():
+            self.__dict__[kys] = vls
         return self.__dict__
