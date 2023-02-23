@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-'''Module for append_after method.'''
+"""This module contains a function for search and update"""
 
 
 def append_after(filename="", search_string="", new_string=""):
-    '''Method for inserting text after search string.'''
-    lines = []
-    with open(filename, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-        i = 0
-        while i < len(lines):
-            if search_string in lines[i]:
-                lines[i:i + 1] = [lines[i], new_string]
-                i += 1
-            i += 1
-    with open(filename, "w", encoding="utf-8") as f:
-        f.writelines(lines)
+    """
+    This function searches for the specific string, when it matches,
+    it will append or write a new string in a new line
+    """
+    with open(filename, mode="r", encoding="utf-8") as fd:
+        data_list = fd.readlines()
+
+    with open(filename, mode="w", encoding="utf-8") as fd:
+        for line in data_list:
+            fd.write(line)
+            if search_string in line:
+                fd.write(new_string)
