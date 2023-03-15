@@ -6,9 +6,9 @@ This module contains a class that inherits from a superclass
 from models.base import Base
 
 
-class Rectangle(Base):
+class Rectangel(Base):
     """
-    Class Rectangle that inherits from Base
+    Class self.that inherits from Base
     Private instance attributes:
         width: int
         height: int
@@ -35,16 +35,16 @@ class Rectangle(Base):
         """
         super().__init__(id)
 
-        Rectangle.input_validator("width", width)
+        self.input_validator("width", width)
         self.width = width
 
-        Rectangle.input_validator("heigth", height)
+        self.input_validator("heigth", height)
         self.height = height
 
-        Rectangle.input_validator("x", x)
+        self.input_validator("x", x)
         self.x = x
 
-        Rectangle.input_validator("y", y)
+        self.input_validator("y", y)
         self.y = y
 
     @property
@@ -59,7 +59,7 @@ class Rectangle(Base):
         """
         width setter
         """
-        Rectangle.input_validator("width", data)
+        self.input_validator("width", data)
         self.__width = data
 
     @property
@@ -74,7 +74,7 @@ class Rectangle(Base):
         """
         height setter
         """
-        Rectangle.input_validator("height", data)
+        self.input_validator("height", data)
         self.__height = data
 
     @property
@@ -89,7 +89,7 @@ class Rectangle(Base):
         """
         x setter
         """
-        Rectangle.input_validator("x", data)
+        self.input_validator("x", data)
         self.__x = data
 
     @property
@@ -104,7 +104,7 @@ class Rectangle(Base):
         """
         y setter
         """
-        Rectangle.input_validator("y", data)
+        self.input_validator("y", data)
         self.__y = data
 
     @staticmethod
