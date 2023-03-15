@@ -38,7 +38,7 @@ class Rectangle(Base):
         Rectangle.input_validator("width", width)
         self.width = width
 
-        Rectangle.input_validator("heigth", height)
+        Rectangle.input_validator("height", height)
         self.height = height
 
         Rectangle.input_validator("x", x)
@@ -115,7 +115,7 @@ class Rectangle(Base):
         if type(data_value) != int:
             raise TypeError("{:s} must be an integer".format(data_name))
 
-        if (data_name == "width" or data_name == "heigth") and data_value <= 0:
+        if (data_name == "width" or data_name == "height") and data_value <= 0:
             raise ValueError("{:s} must be > 0".format(data_name))
 
         if (data_name == "x" or data_name == "y") and data_value < 0:
