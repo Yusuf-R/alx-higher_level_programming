@@ -33,17 +33,19 @@ class Rectangle(Base):
             ValueError: x/y must be >= 0
 
         """
+        super().__init__(id)
 
         Rectangle.input_validator("width", width)
-        Rectangle.input_validator("heigth", height)
-        Rectangle.input_validator("x", x)
-        Rectangle.input_validator("y", y)
+        self.width = width
 
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
-        super().__init__(id)
+        Rectangle.input_validator("heigth", height)
+        self.height = height
+
+        Rectangle.input_validator("x", x)
+        self.x = x
+
+        Rectangle.input_validator("y", y)
+        self.y = y
 
     @property
     def width(self):
@@ -111,8 +113,9 @@ class Rectangle(Base):
         Validates all the inputs data
         """
         if type(data_value) is not int or data_value is None:
-            raise TypeError("{} must be an integer".format(data_name))
+            raise TypeError("{:s} must be an integer".format(data_name))
+
         if (data_name == "width" or data_name == "heigth") and data_value <= 0:
-            raise ValueError("{} must be > 0".format(data_name))
+            raise ValueError("{:s} must be > 0".format(data_name))
         if (data_name == "x" or data_name == "y") and data_value < 0:
-            raise ValueError("{} must be >= 0".format(data_name))
+            raise ValueError("{:s} must be >= 0".format(data_name))
