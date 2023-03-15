@@ -6,7 +6,7 @@ This module contains a class that inherits from a superclass
 from models.base import Base
 
 
-class Rectangel(Base):
+class Rectangle(Base):
     """
     Class self.that inherits from Base
     Private instance attributes:
