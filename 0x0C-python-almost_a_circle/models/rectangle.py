@@ -8,7 +8,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """
-    Class self.that inherits from Base
+    Class Rectangle that inherits from Base
     Private instance attributes:
         width: int
         height: int
@@ -35,16 +35,16 @@ class Rectangle(Base):
         """
         super().__init__(id)
 
-        self.input_validator("width", width)
+        Rectangle.input_validator("width", width)
         self.width = width
 
-        self.input_validator("heigth", height)
+        Rectangle.input_validator("heigth", height)
         self.height = height
 
-        self.input_validator("x", x)
+        Rectangle.input_validator("x", x)
         self.x = x
 
-        self.input_validator("y", y)
+        Rectangle.input_validator("y", y)
         self.y = y
 
     @property
@@ -59,7 +59,7 @@ class Rectangle(Base):
         """
         width setter
         """
-        self.input_validator("width", data)
+        Rectangle.input_validator("width", data)
         self.__width = data
 
     @property
@@ -74,7 +74,7 @@ class Rectangle(Base):
         """
         height setter
         """
-        self.input_validator("height", data)
+        Rectangle.input_validator("height", data)
         self.__height = data
 
     @property
@@ -89,7 +89,7 @@ class Rectangle(Base):
         """
         x setter
         """
-        self.input_validator("x", data)
+        Rectangle.input_validator("x", data)
         self.__x = data
 
     @property
@@ -104,7 +104,7 @@ class Rectangle(Base):
         """
         y setter
         """
-        self.input_validator("y", data)
+        Rectangle.input_validator("y", data)
         self.__y = data
 
     @staticmethod
@@ -112,7 +112,7 @@ class Rectangle(Base):
         """
         Validates all the inputs data
         """
-        if type(data_value) != int:
+        if type(data_value) is not int:
             raise TypeError("{:s} must be an integer".format(data_name))
 
         if (data_name == "width" or data_name == "heigth") and data_value <= 0:
