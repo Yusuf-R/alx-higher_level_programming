@@ -112,7 +112,7 @@ class Rectangle(Base):
         """
         Validates all the inputs data
         """
-        if type(data_value) is not int or data_value is None:
+        if type(data_value) != int:
             raise TypeError("{:s} must be an integer".format(data_name))
 
         if (data_name == "width" or data_name == "heigth") and data_value <= 0:
