@@ -129,5 +129,8 @@ class Rectangle(Base):
         return self.__width * self.height
 
     def display(self):
+        """
+        Give a 2-D representaton of the rectangle
+        """
         for _ in range(self.__height):
             print("#" * self.__width)
