@@ -19,6 +19,19 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Instantiation with width, height, x, y, id
+
+        Args:
+            width: width of the rectangle
+            height: height of the rectangle
+            x: x coordinate of the rectangle
+            y: y coordinate of the rectangle
+            id: id of the rectangle
+
+        Raises:
+            TypeError: height/width/x/y must be an integer
+            ValueError: height/width must be >= 0
+            ValueError: x/y must be >= 0
+
         """
 
         Rectangle.input_validator("width", width)
@@ -97,7 +110,7 @@ class Rectangle(Base):
         """
         Validates all the inputs data
         """
-        if type(data_value) is not int:
+        if type(data_value) is not int or data_value is None:
             raise TypeError("{} must be an integer".format(data_name))
         if (data_name == "width" or data_name == "heigth") and data_value <= 0:
             raise ValueError("{} must be > 0".format(data_name))
