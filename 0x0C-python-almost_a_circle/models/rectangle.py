@@ -144,7 +144,7 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def updat(self, *args):
+    def update(self, *args):
         """
         Using argument vector to udates the attributes of a rectangle
         """
