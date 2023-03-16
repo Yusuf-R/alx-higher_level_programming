@@ -33,3 +33,20 @@ class Square(Rectangle):
     def size(self, data):
         Rectangle.input_validator("width", data)
         self.width = data
+
+
+    def update(self, *args, **kwargs):
+        """
+        This is a method that assigns an argument to each attribute
+        using args and kwargs
+        """
+        sq_attrib = ["id", "size", "x", "y"]
+        if args and len(args) > 0 and len(args) <= len(sq_attrib):
+            for i in range(len(args)):
+                setattr(self, sq_attrib[i], args[i])
+        elif kwargs and len(kwargs) > 0 and len(kwargs) <= len(sq_attrib):
+            for key, value in kwargs.items():
+                if key not in sq_attrib:
+                    pass
+                else:
+                    setattr(self, key, value)
