@@ -15,6 +15,7 @@ class Square(Rectangle):
         """
         This is a constructor for the class Square
         """
+
         super().__init__(size, size, x, y, id)
         Rectangle.input_validator("size", size)
         self.size = size
@@ -27,6 +28,5 @@ class Square(Rectangle):
         """
         This is a string representation of the class Square
         """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,                                                          self.y, self.size)
-
-
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(
+                self.id, self.x, self.y, self.size)
