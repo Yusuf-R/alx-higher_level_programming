@@ -17,16 +17,19 @@ class Square(Rectangle):
         """
 
         super().__init__(size, size, x, y, id)
-        Rectangle.input_validator("size", size)
-        self.size = size
-        Rectangle.input_validator("x", x)
-        self.x = x
-        Rectangle.input_validator("y", y)
-        self.y = y
 
     def __str__(self):
         """
         This is a string representation of the class Square
         """
         return "[Square] ({:d}) {:d}/{:d} - {:d}".format(
-                self.id, self.x, self.y, self.size)
+                self.id, self.x, self.y, self.width)
+
+    @property
+    def size(self):
+        return self.width
+
+    @size.setter
+    def size(self, data):
+        Rectangle.input_validator("width", data)
+        self.width = data
