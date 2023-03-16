@@ -146,7 +146,7 @@ class Rectangle(Base):
 
     def updat(self, *args):
         """
-        Updates the attributes of a rectangle
+        Using argument vector to udates the attributes of a rectangle
         """
         if len(args) >= 1:
             self.id = args[0]
