@@ -6,6 +6,7 @@ This is a module for describing the Square template
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """
     This is a class Square that inherits from the class Rectangle
@@ -26,7 +27,6 @@ class Square(Rectangle):
         """
         This is a string representation of the class Square
         """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,
-                                                          self.y, self.size)
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,                                                          self.y, self.size)
 
 
