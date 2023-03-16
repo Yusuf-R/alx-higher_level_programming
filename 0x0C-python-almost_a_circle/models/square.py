@@ -34,7 +34,6 @@ class Square(Rectangle):
         Rectangle.input_validator("width", data)
         self.width = data
 
-
     def update(self, *args, **kwargs):
         """
         This is a method that assigns an argument to each attribute
