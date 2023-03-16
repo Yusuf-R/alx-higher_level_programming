@@ -49,3 +49,14 @@ class Square(Rectangle):
                     pass
                 else:
                     setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        This is a method that returns the dictionary representation
+        of a Square's attributes
+        """
+        sq_attrib = ["id", "size", "x", "y"]
+        sq_dict = {}
+        for i in range(len(sq_attrib)):
+            sq_dict[sq_attrib[i]] = getattr(self, sq_attrib[i])
+        return sq_dict
