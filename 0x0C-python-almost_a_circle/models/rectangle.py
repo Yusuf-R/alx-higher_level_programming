@@ -144,7 +144,7 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Using argument vector to udates the attributes of a rectangle
         """
@@ -152,3 +152,9 @@ class Rectangle(Base):
         if args and len(args) > 0 and len(args) <= len(attr):
             for i in range(len(args)):
                 setattr(self, attr[i], args[i])
+        elif kwargs and len(kwargs) > 0 and len(kwargs) <= len(attr):
+            for key, value in kwargs.items():
+                if key not in attr:
+                    pass
+                else:
+                    setattr(self, key, value)
