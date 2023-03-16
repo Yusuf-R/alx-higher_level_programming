@@ -158,3 +158,14 @@ class Rectangle(Base):
                     pass
                 else:
                     setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of a rectangle
+        attributes
+        """
+        attr = ["id", "width", "height", "x", "y"]
+        dic = {}
+        for i in range(len(attr)):
+            dic[attr[i]] = getattr(self, attr[i])
+        return dic
