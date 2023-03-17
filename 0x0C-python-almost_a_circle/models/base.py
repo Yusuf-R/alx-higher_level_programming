@@ -77,17 +77,9 @@ class Base:
         if not path.exists(filename) or not path.isfile(filename) or\
                 filename not in files:
             return []
-        else:
-            with open(filename, mode="r", encoding="utf-8") as f:
-                js_obj = f.read()
+        with open(filename, mode="r", encoding="utf-8") as f:
+            js_obj = f.read()
         py_obj = cls.from_json_string(js_obj)
-
-        if type(py_obj) != list or not all(
-                type(item) == dict for item in py_obj):
-            raise TypeError("{} doesn't contain a list of dictionaries".format(
-                filename
-                ))
-
         for i in range(len(py_obj)):
             py_obj_inst[i] = cls.create(**py_obj_inst[i])
         return py_obj_inst
