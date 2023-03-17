@@ -76,10 +76,10 @@ class Base:
         filename = cls.__name__ + ".json"
         if not path.exists(filename) or not path.isfile(filename) or\
                 filename not in files:
-            return []
+            return py_obj_inst
         with open(filename, mode="r", encoding="utf-8") as f:
             js_obj = f.read()
         py_obj = cls.from_json_string(js_obj)
-        for i in range(len(py_obj)):
-            py_obj_inst[i] = cls.create(**py_obj_inst[i])
+        for obj in py_obj:
+            py_obj_inst.append(cls.create(**obj))
         return py_obj_inst
