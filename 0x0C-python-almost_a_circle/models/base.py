@@ -62,9 +62,9 @@ class Base:
         already set
         """
         if cls.__name__ == "Rectangle":
-            dummy_instance = cls(8, 5, 3, 6, 18)
+            dummy_instance = cls(1, 1)
         elif cls.__name__ == "Square":
-            dummy_instance = cls(4, 2, 8, 10)
+            dummy_instance = cls(1)
         dummy_instance.update(**dictionary)
         return dummy_instance
 
