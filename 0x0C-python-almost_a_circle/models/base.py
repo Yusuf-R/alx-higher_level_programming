@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This is  module that contian the base definaton of a class Base"""
 import json
+from os import path
 
 
 class Base:
@@ -66,3 +67,19 @@ class Base:
             dummy_instance = cls(4, 2, 8, 10)
         dummy_instance.update(**dictionary)
         return dummy_instance
+
+
+    @classmethod
+    def load_from_file(cls):
+        """This is a class method that returns a list of instances"""
+        py_obj_inst = []
+        files = ["Rectangle.json", "Square.json"]
+        filename = cls.__name__ + ".json"
+        if not path.exists(filename) or filename not in files:
+            return py_obj_inst
+        with open(filename, mode="r", encoding="utf-8") as f:
+            js_obj = f.read()
+        py_obj = cls.from_json_string(js_obj)
+        for i in range(len(py_obj)):
+            py_obj_inst[i] = cls.create(**py_obj_inst[i])
+        return py_obj_inst
