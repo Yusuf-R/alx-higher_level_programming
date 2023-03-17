@@ -3,6 +3,7 @@
 import json
 from os import path
 
+
 class Base:
     """This is a base class"""
 
@@ -73,7 +74,8 @@ class Base:
         py_obj_inst = []
         files = ["Rectangle.json", "Square.json"]
         filename = cls.__name__ + ".json"
-        if not path.exists(filename) or not path.isfile(filename) or filename not in files:
+        if not path.exists(filename) or not path.isfile(filename) or\
+                filename not in files:
             return []
         else:
             with open(filename, mode="r", encoding="utf-8") as f:
