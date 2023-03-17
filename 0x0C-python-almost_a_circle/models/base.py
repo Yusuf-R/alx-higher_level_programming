@@ -47,7 +47,7 @@ class Base:
                 f.write(cls.to_json_string(py_list))
 
     @staticmethod
-    def json_string(json_string):
+    def from_json_string(json_string):
         """This is a static method that returns the list of the JSON string
         representation json_string
         """
