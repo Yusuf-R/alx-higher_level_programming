@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is  module that contian the base definaton of a class Base"""
 import json
-
+from os import path
 
 class Base:
     """This is a base class"""
@@ -73,8 +73,8 @@ class Base:
         py_obj_inst = []
         files = ["Rectangle.json", "Square.json"]
         filename = cls.__name__ + ".json"
-        if filename not in files:
-            return py_obj_inst
+        if not path.exists(filename) or not path.isfile(filename) or filename not in files:
+            return []
         else:
             with open(filename, mode="r", encoding="utf-8") as f:
                 js_obj = f.read()
