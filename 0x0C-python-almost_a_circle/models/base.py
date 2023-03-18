@@ -2,6 +2,7 @@
 """This is  module that contian the base definaton of a class Base"""
 import json
 from os import path
+import csv
 
 
 class Base:
@@ -83,3 +84,49 @@ class Base:
         for obj in py_obj:
             py_obj_inst.append(cls.create(**obj))
         return py_obj_inst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        This is a class method that writes the CSV string representation
+        """
+        if list_objs is None or len(list_objs) == 0:
+            list_objs = []
+        py_obj = []
+        for obj in list_objs:
+            py_obj.append(obj.to_dictionary())
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="w", newline="", encoding="utf-8") as f:
+            if len(list_objs) == 0:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    column_title = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    column_title = ["id", "size", "x", "y"]
+                csv_obj = csv.DictWriter(f, fieldnames=column_title)
+                csv_obj.writeheader()
+                csv_obj.writerows(py_obj)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        This is a class method that returns a list of instances
+        """
+        py_obj_inst = []
+        pyt_obj = []
+        dict_obj_attrib = {}
+        files = ["Rectangle.csv", "Square.csv"]
+        filename = cls.__name__ + ".csv"
+        if not path.exists(filename) or not path.isfile(filename) or\
+                filename not in files:
+            return py_obj_inst
+        with open(filename, mode="r", newline="", encoding="utf-8") as f:
+            csv_obj = csv.DictReader(f)
+            py_obj_inst = [obj for obj in csv_obj]
+            for _, cols in enumerate(py_obj_inst):
+                for key, value in cols.items():
+                    val = int(value)
+                    dict_obj_attrib[key] = val
+                pyt_obj.append(cls.create(**dict_obj_attrib))
+        return pyt_obj
