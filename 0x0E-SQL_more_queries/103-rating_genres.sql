@@ -1,5 +1,5 @@
 -- a script that lists all genres in the database hbtn_0d_tvshows_rate by their rating
-SELECT tg.name, SUM(ts.rate) as rating
+SELECT tg.name, SUM(ts.rate) AS rating
 FROM tv_genres tg
 JOIN tv_show_genres tsg
 ON tg.id = tsg.genre_id
