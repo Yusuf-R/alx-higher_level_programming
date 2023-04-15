@@ -1,3 +1,3 @@
 #!/usr/bin/node
-const args = process.argv;
-console.log(args[2] + ' is ' + args[3]);
+const sysArgv = require('process');
+console.log(sysArgv.argv[2] + ' is ' + sysArgv.argv[3]);
