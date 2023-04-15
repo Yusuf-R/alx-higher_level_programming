@@ -5,7 +5,7 @@ const regMap = /^(\+|-)?\d+(\.\d+)?$/;
 const isStrictInt = regMap.test(firstArg);
 if (isStrictInt) {
   const valNum = parseInt(firstArg);
-  console.log('My number: ', valNum);
+  console.log('My number:', valNum);
 } else {
   console.log('Not a number');
 }
