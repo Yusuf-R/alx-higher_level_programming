@@ -1,16 +1,15 @@
 #!/usr/bin/node
-const size = Number.parseInt(process.argv[2], 10);
-if (isNaN(size)) {
-  console.log('Missing size');
-} else {
-  let sq = '';
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      sq += 'X';
+const sysArgv = require('process');
+let msg = '';
+if (sysArgv.argv[2]) {
+  const count = sysArgv.argv[2];
+  for (let i = 0; i < count; i++) {
+    for (let j = 0; j < count; j++) {
+      msg = msg + 'X';
     }
-    if (i < size - 1) {
-      sq += '\n';
-    }
+    msg += '\n';
   }
-  console.log(sq);
+  console.log(msg);
+} else if (!sysArgv.argv[2]) {
+  console.log('Missing number of occurrences');
 }
