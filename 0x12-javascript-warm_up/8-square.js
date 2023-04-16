@@ -11,5 +11,5 @@ if (sysArgv.argv[2]) {
   }
   console.log(msg);
 } else if (!sysArgv.argv[2]) {
-  console.log('Missing number of occurrences');
+  console.log('Missing size');
 }
