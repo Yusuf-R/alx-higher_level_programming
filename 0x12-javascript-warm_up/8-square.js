@@ -1,15 +1,18 @@
 #!/usr/bin/node
 const sysArgv = require('process');
-let msg = '';
-if (sysArgv.argv[2]) {
-  const count = sysArgv.argv[2];
-  for (let i = 0; i < count; i++) {
-    for (let j = 0; j < count; j++) {
-      msg = msg + 'X';
+const firstArg = sysArgv.argv[2];
+const regMap = /^(\+|-)?\d+(\.\d+)?$/;
+const isStrictInt = regMap.test(firstArg);
+let msg = "";
+if (isStrictInt) {
+  const valNum = parseInt(firstArg);
+  for (let i = 0; i < valNum; i++) {
+    for (let j = 0; j < valNum; j++) {
+      msg += "X";
     }
-    msg += '\n';
+    msg += "\n";
   }
   console.log(msg);
-} else if (!sysArgv.argv[2]) {
+} else {
   console.log('Missing size');
 }
