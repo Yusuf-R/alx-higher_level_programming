@@ -3,14 +3,14 @@ const sysArgv = require('process');
 const firstArg = sysArgv.argv[2];
 const regMap = /^(\+|-)?\d+(\.\d+)?$/;
 const isStrictInt = regMap.test(firstArg);
-let msg = "";
+let msg = '';
 if (isStrictInt) {
   const valNum = parseInt(firstArg);
   for (let i = 0; i < valNum; i++) {
     for (let j = 0; j < valNum; j++) {
-      msg += "X";
+      msg += 'X';
     }
-    msg += "\n";
+    msg += '\n';
   }
   console.log(msg);
 } else {
