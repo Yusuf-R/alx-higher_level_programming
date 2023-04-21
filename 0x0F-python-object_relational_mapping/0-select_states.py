@@ -15,12 +15,12 @@ def main():
     mysql = MySQLdb.connect(
             host=host,
             user=usr,
-            pasword=pwd,
+            passwd=pwd,
             database=db,
             port=pt
             )
     db_cursor = mysql.cursor()
-    db_cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    db_cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
     result = db_cursor.fetchall()
 
     for row in result:
