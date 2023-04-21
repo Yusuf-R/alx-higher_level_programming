@@ -23,7 +23,7 @@ def main():
     myDB_cursor = myDB.cursor()
     myquery = ("SELECT * "
                "FROM states "
-               "WHERE states.name = '{}' "
+               "WHERE states.name LIKE BINARY '{}' "
                "ORDER BY states.id ASC".format(kw))
     try:
         myDB_cursor.execute(myquery)
