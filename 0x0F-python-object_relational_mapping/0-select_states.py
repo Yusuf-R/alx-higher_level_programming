@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 """a script that list all states from the database hbtn_0e_0_usa"""
 import MySQLdb
+from sys import argv
 
 
-def main(*args):
+def main(*argv):
     """a module for setting up DB connection"""
     host = 'localhost'
-    usr = args[0]
-    pwd = args[1]
-    db = args[2]
+    usr = argv[1]
+    pwd = argv[2]
+    db = argv[3]
     pt = 3306
 
     mysql = MySQLdb.connect(
