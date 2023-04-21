@@ -25,7 +25,11 @@ def main():
                "FROM states "
                "WHERE states.name = '{}' "
                "ORDER BY states.id ASC".format(kw))
-    myDB_cursor.execute(myquery)
+    try:
+        myDB_cursor.execute(myquery)
+    except Exception:
+        return
+
     result = myDB_cursor.fetchall()
 
     for row in result:
