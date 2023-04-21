@@ -4,7 +4,7 @@ import MySQLdb
 from sys import argv
 
 
-def main(*argv):
+def main():
     """a module for setting up DB connection"""
     host = 'localhost'
     usr = argv[1]
