@@ -19,9 +19,10 @@ def main(*args):
             port=pt
             )
     db_cursor = mysql.cursor()
-    display = db_cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    db_cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    result = db_cursor.fetchall()
 
-    for row in display:
+    for row in result:
         print(row)
 
     db_cursor.close()
