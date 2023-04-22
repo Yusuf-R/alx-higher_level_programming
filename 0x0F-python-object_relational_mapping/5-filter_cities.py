@@ -33,9 +33,17 @@ def main():
         return
 
     result = myDB_cursor.fetchall()
+    display = []
+    i = -1
 
-    for row in result:
-        print(row, end="")
+    for dsp in result:
+        display.append(dsp[0])
+    for dsp in display:
+        i += 1
+        if i == len(display) - 1:
+            print(dsp, end="")
+        else:
+            print(dsp, end=", ")
 
     myDB_cursor.close()
     myDB.close()
