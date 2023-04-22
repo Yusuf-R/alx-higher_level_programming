@@ -33,17 +33,9 @@ def main():
         return
 
     result = myDB_cursor.fetchall()
-    display = []
-    i = -1
-
-    for dsp in result:
-        display.append(dsp[0])
-    for dsp in display:
-        i += 1
-        if i == len(display) - 1:
-            print(dsp, end="")
-        else:
-            print(dsp, end=", ")
+    cities = [city[0] for city in result]
+    output = ", ".join(cities)
+    print(output)
 
     myDB_cursor.close()
     myDB.close()
