@@ -1,25 +1,45 @@
 #!/usr/bin/python3
-"""Filter cities Module"""
+"""a script that list all states from the database hbtn_0e_0_usa"""
 import MySQLdb
 from sys import argv
 
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(
-            host='localhost',
-            port=3306,
-            user=argv[1],
-            passwd=argv[2],
-            db=argv[3])
+def main():
+    """a module for setting up DB connection"""
+    host = 'localhost'
+    usr = argv[1]
+    pwd = argv[2]
+    db = argv[3]
+    state_arg = argv[4]
+    pt = 3306
 
-    cursor = db.cursor()
-    cursor.execute('''
-        SELECT cities.name FROM cities
-        LEFT JOIN states ON cities.state_id = states.id
-        WHERE states.name = %s
-        ORDER BY cities.id ASC
-        ''', (argv[4], ))
-    rows = cursor.fetchall()
-    print(', '.join([row[0] for row in rows]))
-    cursor.close()
-    db.close()
+    myDB = MySQLdb.connect(
+            host=host,
+            user=usr,
+            passwd=pwd,
+            database=db,
+            port=pt
+            )
+    myDB_cursor = myDB.cursor()
+    myquery = ("SELECT cities.name "
+               "FROM cities "
+               "JOIN states "
+               "ON cities.state_id = states.id "
+               "WHERE states.name = %s "
+               "ORDER BY cities.id ASC")
+    try:
+        myDB_cursor.execute(myquery, (state_arg,))
+    except Exception:
+        return
+
+    result = myDB_cursor.fetchall()
+
+    for row in result:
+        print(row, end="")
+
+    myDB_cursor.close()
+    myDB.close()
+
+
+if __name__ == "__main__":
+    main()
