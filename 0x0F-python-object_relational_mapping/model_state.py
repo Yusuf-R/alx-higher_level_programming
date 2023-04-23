@@ -21,6 +21,7 @@ if __name__ == "__main__":
     engine.connect()
 
     class State(Base):
+        """ State class """
         __tablename__ = 'states'
         id = Column(Integer, primary_key=True,
                     autoincrement=True, nullable=False, unique=True)
