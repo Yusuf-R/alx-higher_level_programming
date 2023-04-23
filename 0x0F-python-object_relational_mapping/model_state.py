@@ -15,6 +15,7 @@ if __name__ == "__main__":
     """
 
     Base = declarative_base()
+    """This is the base class for the declarative"""
 
     usr = argv[1]
     pswd = argv[2]
