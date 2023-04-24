@@ -1,21 +1,28 @@
 #!/usr/bin/python3
-"""Fetch state from database
-"""
-import sys
-from model_state import Base, State
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
+"""module will use sqlalchemy to query of database table"""
 
+from model_state import State, Base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from sys import argv
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-    session = sessionmaker(bind=engine)()
+    usr = argv[1]
+    pswd = argv[2]
+    db = argv[3]
+    arg = argv[4]
 
-    state = session.query(State).filter(State.name == sys.argv[4]).all()
-    if state:
-        print(state[0].id)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(usr, pswd, db), pool_pre_ping=True)
+    engine.connect()
+    Base.metadata.create_all(engine)
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    result = session.query(State).where(State.name == argv).first()
+    if not result:
+        print("Not found")
     else:
-        print('Not found')
+        print("{}: {}" .format(result.id))
     session.close()
