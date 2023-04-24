@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-This module will use sqlalchemy to query of database table
-"""
+"""module will use sqlalchemy to query of database table"""
 
 from model_state import State, Base
 from sqlalchemy.orm import sessionmaker
