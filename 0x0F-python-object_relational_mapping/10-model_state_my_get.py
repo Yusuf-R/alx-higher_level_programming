@@ -20,9 +20,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).where(State.name == argv).first()
-    if not result:
+    query = session.query(State).where(State.name == argv).first()
+    if not query:
         print("Not found")
     else:
-        print("{}" .format(result.id))
+        print("{}" .format(query.id))
     session.close()
