@@ -22,6 +22,9 @@ if __name__ == "__main__":
 
     query = State(id=6, name=inpt)
     session.add(query)
-
     session.commit()
+
+    q_qwery = session.query(State).where(State.name == inpt).first()
+    print("{}" .format(q_qwery.id))
+
     session.close()
