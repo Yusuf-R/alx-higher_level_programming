@@ -24,5 +24,5 @@ if __name__ == "__main__":
     if not result:
         print("Not found")
     else:
-        print("{}: {}" .format(result.id))
+        print("{}" .format(result.id))
     session.close()
