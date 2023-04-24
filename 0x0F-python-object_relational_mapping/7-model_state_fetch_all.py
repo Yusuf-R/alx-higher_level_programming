@@ -12,7 +12,7 @@ usr = argv[1]
 pswd = argv[2]
 db = argv[3]
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                        .format(usr, pswd, db), pool_pre_ping=True)
 engine.connect()
 
