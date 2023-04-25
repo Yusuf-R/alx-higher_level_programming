@@ -1,22 +1,32 @@
 #!/usr/bin/python3
-"""Creates state California"""
+"""prints all City objects from the database"""
+
 from sys import argv
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from relationship_state import Base, State
+from sqlalchemy.orm import sessionmaker
 from relationship_city import City
+from relationship_state import State, Base
 
 
-if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-                argv[1], argv[2], argv[3]), pool_pre_ping=True)
+if __name__ == "__main__":
+    usr = argv[1]
+    pswd = argv[2]
+    db = argv[3]
+
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(usr, pswd, db), pool_pre_ping=True)
+    engine.connect()
     Base.metadata.create_all(engine)
 
-    session = sessionmaker(bind=engine)()
-    new_state = State(name="California")
-    session.add(new_state)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    query_new_state = State(name="California")
+    session.add(query_new_state)
     session.commit()
-    new_city = City(name="San Francisco", state_id=new_state.id)
-    session.add(new_city)
+
+    query_new_city = City(name="San Francisco", state_id=query_new_state.id)
+    session.add(query_new_city)
     session.commit()
+
     session.close()

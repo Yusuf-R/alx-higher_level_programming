@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""City class module"""
+"""A relationship City class module"""
 from sqlalchemy import Column, String, Integer, ForeignKey
 from relationship_state import Base
 

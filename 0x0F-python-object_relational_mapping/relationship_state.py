@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""State class module"""
+"""The relationship State class module"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
