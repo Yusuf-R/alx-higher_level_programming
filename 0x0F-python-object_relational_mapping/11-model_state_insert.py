@@ -20,7 +20,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = State(id=6, name=inpt)
+    query = State(name=inpt)
     session.add(query)
     session.commit()
 
