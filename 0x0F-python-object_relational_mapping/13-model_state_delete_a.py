@@ -10,7 +10,6 @@ if __name__ == "__main__":
     usr = argv[1]
     pswd = argv[2]
     db = argv[3]
-    letter = "a"
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(usr, pswd, db), pool_pre_ping=True)
@@ -20,7 +19,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = session.query(State).filter(State.name.like('%:letter%')).all()
+    query = session.query(State).filter(State.name.like('%a%')).all()
     for state in query:
         session.delete(state)
     session.commit()
