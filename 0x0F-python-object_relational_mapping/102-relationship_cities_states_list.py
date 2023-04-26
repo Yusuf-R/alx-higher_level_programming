@@ -25,6 +25,6 @@ if __name__ == "__main__":
 
     for state in query:
         for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name, state.name))
+            print("{}: {} -> {}".format(city.id, city.name, state.name))
     session.commit()
     session.close()
