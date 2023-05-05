@@ -1,3 +1,3 @@
 #!/bin/bash
-# script that sends a JSON POST request to a URL passed as the first argument, and displays the body of the response.
-curl -s -X POST -d @"$2" -H "Content-Type: application/json" "$1"
+#Send a POST request to a URL with email and subject variables
+curl -s -X POST -d 'email=test@gmail.com' -d 'subject=I will always be here for PLD' "$1" # & also works instead of repeating -d
