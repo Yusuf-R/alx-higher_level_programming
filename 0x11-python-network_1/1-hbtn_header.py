@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-"""
-script that takes in a URL and an email, sends a POST
-request to the passed URL with the email as a parameter,
-and displays the body of the response (decoded in utf-8)
-"""
+"""a python script that fetches a url"""
 import urllib.request
 from sys import argv
-
-if len(argv) > 1:
-    with urllib.request.urlopen(argv[1]) as my_resp:
-        print(my_resp.getheader("X-Request-Id"))
+url = argv[1]
+with urllib.request.urlopen(url) as response:
+    html_header = response.headers
+    content = html_header.get("X-Request-Id")
+    print(content)
