@@ -7,7 +7,7 @@ from sys import argv
 if len(argv) > 2:
     url_req = argv[1]
     email = argv[2]
-    info = {"email" : email}
+    info = {"email": email}
 
     data = urllib.parse.urlencode(info).encode("ascii")
     url = urllib.request.Request(url_req, data=data, method="POST")
