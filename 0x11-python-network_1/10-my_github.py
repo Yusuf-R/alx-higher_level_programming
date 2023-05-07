@@ -14,6 +14,9 @@ if __name__ == "__main__":
     html = requests.post(url, auth=(usr, paswd))
     try:
         html_json = html.json()
-        print("{}".format(html_json.get("id")))
+        if html_json.get("id"):
+            print("{}".format(html_json.get("id")))
+        else:
+            print("None")
     except ValueError:
         print("Not a valid JSON")
