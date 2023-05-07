@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""
-Write a Python script that takes in a URL,
-sends a request to the URL and displays the body of the response
-"""
+"""displays the body and the response code if error"""
 import requests
 from sys import argv
 
+if len(argv) > 1:
+    url_req = argv[1]
 
-if __name__ == '__main__':
-    rv = requests.get(argv[1])
-    if rv.status_code >= 400:
-        print('Error code:', rv.status_code)
+    url = requests.get(url_req)
+    e_code = url.status_code
+
+    if e_code > 399:
+        print("Error code: {}".format(e_code))
     else:
-        print(rv.text)
+        print(url.text)
