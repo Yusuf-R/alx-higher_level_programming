@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""
-a Python script that fetches https://alx-intranet.hbtn.io/status"""
+"""a python script that fetches a url using request module"""
 import requests
 
-if __name__ == '__main__':
-    rv = requests.get('https://intranet.hbtn.io/status')
-    print("Body response:\n\t- type: {}\n\t- content: {}".format(
-          type(rv.text), rv.text))
+url = "https://alx-intranet.hbtn.io/status"
+html = requests.get(url)
+content_utf = html.content.decode("utf-8")
+print("Body response:")
+print("\t- type: {}".format(type(content_utf)))
+print("\t- content: {}".format(content_utf))
