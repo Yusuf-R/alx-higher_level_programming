@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""
-a Python script that takes in a URL, sends a request to the URL
-and displays the body of the response
-"""
-from urllib.request import Request, urlopen
-from urllib.error import HTTPError
+"""displays the body of the response and handles exceptions"""
+import urllib.request
+import urllib.error
 from sys import argv
 
-if __name__ == '__main__':
-    my_req = Request(argv[1])
+if len(argv) > 1:
+    url_req = argv[1]
+
+    url = urllib.request.Request(url_req)
+
     try:
-        with urlopen(my_req) as response:
-            rv = response.read()
-            print(rv.decode('utf-8'))
-    except HTTPError as e:
-        print('Error code:', e.code)
+        with urllib.request.urlopen(url) as html:
+            html_body = html.read().decode("utf-8")
+            print(html_body)
+    except urllib.error.HTTPError as e:
+        print("Error code: {}".format(e.code))
