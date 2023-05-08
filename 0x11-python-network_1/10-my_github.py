@@ -16,7 +16,5 @@ if __name__ == "__main__":
         html_json = html.json()
         if html_json:
             print("{}".format(html_json.get("id")))
-        else:
-            print("None")
     except ValueError:
         print("Not a valid JSON")
