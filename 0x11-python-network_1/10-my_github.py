@@ -11,7 +11,7 @@ if __name__ == "__main__":
     paswd = argv[2]
     url = "https://api.github.com/user"
 
-    html = requests.post(url, auth=(usr, paswd))
+    html = requests.get(url, auth=(usr, paswd))
     try:
         html_json = html.json()
         if html_json:
