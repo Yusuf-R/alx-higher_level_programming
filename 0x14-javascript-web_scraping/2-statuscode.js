@@ -1,7 +1,11 @@
 #!/usr/bin/node
-// displays the code of a GET request
-
+// a script to display the staus code of GET request
 const request = require('request');
-request(process.argv[2], function (error, response) {
-  console.log(error || 'code:', response && response.statusCode);
+const url = process.argv[2];
+request(url, function (error, response) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('code:', response.statusCode);
+  }
 });
