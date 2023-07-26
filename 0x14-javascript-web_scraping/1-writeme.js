@@ -1,9 +1,10 @@
 #!/usr/bin/node
-// to write in to a file
+// a script to read the content of a file
 const fs = require('fs');
-
-fs.writeFile(process.argv[2], process.argv[3], err => {
+const file = process.argv[2];
+const string_to_write = process.argv[3];
+fs.writeFile(file, string_to_write, 'utf-8', (err) => {
   if (err) {
-    console.error(err);
+    return console.log(err);
   }
 });
