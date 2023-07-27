@@ -1,17 +1,28 @@
 #!/usr/bin/node
-// computes numner of tasks completed by user id
+// a script to print the title of a Star Wars movie
 const request = require('request');
-request(process.argv[2], (error, response, body) => {
-  if (error) throw new Error(error);
-  const tasks = JSON.parse(body);
-  const users = {};
-  tasks.forEach(task => {
-    if (task.completed) {
-      if (!users[task.userId.toString()]) {
-        users[task.userId.toString()] = 0;
+const url = process.argv[2];
+
+const usrIdDataCompleted = {};
+
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  } else if (response.statusCode === 200) {
+    const todoData = JSON.parse(body);
+    todoData.forEach((element) => {
+      const userId = element.userId;
+      const completed = element.completed;
+      if (!usrIdDataCompleted[userId]) {
+        usrIdDataCompleted[userId] = 0;
       }
-      users[task.userId.toString()] += 1;
-    }
-  });
-  console.log(users);
+      if (completed) {
+        usrIdDataCompleted[userId]++;
+      }
+    });
+    console.log(usrIdDataCompleted);
+  } else {
+    console.log('Error in data:', response.statusCode);
+    process.exit(1);
+  }
 });
