@@ -1,10 +1,23 @@
 #!/usr/bin/node
-// gets webpage content and stores in a file
+// a script to print the title of a Star Wars movie
 const request = require('request');
 const fs = require('fs');
-request(process.argv[2], (error, response, body) => {
-  if (error) throw new Error(error);
-  fs.writeFile(process.argv[3], body, err => {
-    if (err) throw new Error(error);
-  });
+
+const url = process.argv[2];
+const filename = process.argv[3];
+
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  } else if (response.statusCode === 200) {
+    const lorem = body;
+    fs.writeFile(filename, lorem, 'utf-8', (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  } else {
+    console.log('Error in data:', response.statusCode);
+    process.exit(1);
+  }
 });
