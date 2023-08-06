@@ -7,14 +7,17 @@
 // You can’t use document.querySelector to select the HTML tag
 // You must use the JQuery API
 // You script must work when it imported from the HEAD tag
-$('document').ready(() => {
-  $('DIV#add_item').click(() => {
-    $('UL.my_list').append('<li>Item</li>');
+$(document).ready(function () {
+  const cnt = '<li>Item</li>';
+  $('#add_item').on('click', function () {
+    $('.my_list').append(cnt);
   });
-  $('DIV#remove_item').click(() => {
-    $('UL.my_list li:last').remove();
+
+  $('#remove_item').on('click', function () {
+    $('.my_list li:last-child').remove();
   });
-  $('DIV#clear_list').click(() => {
-    $('UL.my_list').empty();
+
+  $('#clear_list').on('click', function () {
+    $('.my_list').empty();
   });
 });
